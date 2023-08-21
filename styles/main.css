@@ -1,0 +1,98 @@
+
+/* Les variables à modifier */
+:root {
+    --main-color : #1f583aec ;
+    --text-color   : #334155;
+    --error : #e31556 ;
+}
+
+/* CSS GENERAL */
+
+h2 {
+    font-weight: 700;
+    font-size : 1.15rem;
+    line-height: 1.75rem;
+    color:var(--text-color);
+} 
+
+p {
+    color: var(--text-color);
+    line-height: 1.5rem;
+}
+
+.span-error {
+    color: var(--error);
+    font-weight: 700;
+}
+
+/* FONT */
+
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Lexend';
+    src: url('../font/lexend/static/Lexend-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-display: swap;
+  }
+  
+
+* {
+    font-family: 'Lexend', serif;  
+}
+
+/* MEDIA QUERY */
+    
+@media screen and (min-width: 992px) {
+    h2 {
+        font-size : 1.25rem;
+    } 
+}
