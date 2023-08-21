@@ -18,14 +18,6 @@ logs
 .idea
 
 # Local env files
-.env
-.env.*
-.env .test
 
-## articles 
-content/articles
 
-## Repertoire public
-public/
-!public/globalTemplateConfig.JSON
 

@@ -1,6 +1,6 @@
 export function useSeoSetup (storeConfigGlobal, storeConfigPage) {
   const route = useRoute()
-
+  // SCHEMA.ORG
   const generateJSONLD = () => ({
     '@context': 'http://schema.org',
     '@type': 'WebSite',
@@ -13,7 +13,7 @@ export function useSeoSetup (storeConfigGlobal, storeConfigPage) {
       '@id': storeConfigGlobal ? `${storeConfigGlobal.url}` : ''
     }
   })
-
+  // SEO
   useHead(() => ({
     link: [
       {

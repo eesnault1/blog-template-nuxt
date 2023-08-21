@@ -1,0 +1,29 @@
+{    
+  "global": {
+      "url": "URL_DU_BLOG",
+      "titre": "TITRE_DU_BLOG",
+      "description": "DESCRIPTION_DU_BLOG",
+      "img" : "./IMAGE.JPG"
+  },
+  "pages": {
+    "tous_les_articles": {
+      "titre": "",
+      "description": "",
+      "img": ""
+    },
+    "choix_categorie_accueil": {
+      "categorie_1": "",
+      "categorie_2": ""
+    },
+    "recherche_input": {
+      "titre": "",
+      "description": "",
+      "img": ""
+    },
+    "recherche_categories": {
+      "titre": "",
+      "description": "",
+      "img": ""
+    }
+  }
+}
