@@ -56,7 +56,7 @@ Ce fichier vous permet de configurer l'affichage global, le SEO et les diverses 
 
  2. `.env`
 
-Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Assurez-vous de remplir chaque champ. Exemple :
+Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Créer ce fichier à la racine de votre projet. Assurez-vous de remplir chaque champ. Exemple :
 
 ```
 GA_ID=Votre_Google_Analytics_ID
