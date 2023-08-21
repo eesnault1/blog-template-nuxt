@@ -1,49 +1,19 @@
 {
   "mainCategories": [
     {
-      "name": "Le Jardinage",
-      "color": "#D3E9D4",
+      "name": "Nom de la catégorie principale",
+      "color": "#codeCouleur",
       "categories": [
-        "Jardinage écologique & permaculture",
-        "Cultures - Légumes Fruits & Fleurs",
-        "Semis et repiquage",
-        "Plantes médicinales et aromatiques",
-        "Le sol",
-        "Irrigation & gestion de l'eau"
+        "Sous-catégorie 1",
+        "Sous-catégorie 2"
       ]
     },
     {
-      "name": "Techniques Avancées",
-      "color": "#C0E5C1",
+      "name": "Autre catégorie principale",
+      "color": "#autreCodeCouleur",
       "categories": [
-        "Associations de plantes & biodiversité",
-        "Gestion des ravageurs et des maladies",
-        "Techniques de culture - Buttes paillis & mulching",
-        "Design de jardin & permaculture"
-      ]
-    },
-    {
-      "name": "Aménagement Paysager & Urbain",
-      "color": "#B3E1B4",
-      "categories": [
-        "Aménagements écologiques & climats spécifiques",
-        "Jardins urbains - Toits & micro-jardins"
-      ]
-    },
-    {
-      "name": "Conseils & Astuces",
-      "color": "#91D894",
-      "categories": [
-        "Conseils de saison & protection des plantes",
-        "Outils techniques et économie d'énergie au jardin"
-      ]
-    },
-    {
-      "name": "Cuisine & Utilisations des Plantes",
-      "color": "#80D590",
-      "categories": [
-        "Recettes du jardin",
-        "Usages divers des plantes & aromates"
+        "Autre sous-catégorie 1",
+        "Autre sous-catégorie 2"
       ]
     }
   ]

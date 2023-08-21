@@ -3,7 +3,7 @@
 
 Ce template offre une solution prête à l'emploi pour créer rapidement son blog avec un contenu facilement modifiable.
 
-Vous devez avoir au moins 7 articles sur votre site pour que celui-ci marche
+Vous devez avoir au moins 7 articles sur votre site pour que celui-ci marche. 
 
 ## Étapes d'installation
 
@@ -56,7 +56,7 @@ Ce fichier vous permet de configurer l'affichage global, le SEO et les diverses 
 
  2. `.env`
 
-Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Créer ce fichier à la racine de votre projet. Assurez-vous de remplir chaque champ. Exemple :
+Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Assurez-vous de remplir chaque champ. Exemple :
 
 ```
 GA_ID=Votre_Google_Analytics_ID
@@ -122,7 +122,7 @@ Pour ajouter des photos à votre blog, suivez les étapes ci-dessous :
 
 1. **Placement des photos** : 
 
-Les photos doivent être placées à l'intérieur du dossier `public`. Ce dossier est prévu pour contenir tous les fichiers statiques accessibles au public.
+Les photos doivent être placées à l'intérieur du dossier `public`. Ce dossier est prévu pour contenir tous les fichiers statiques.
 
 2. **Organisation avec des sous-dossiers** : 
 
@@ -134,10 +134,38 @@ Une fois que vous avez placé vos photos dans le dossier approprié, vous pouvez
    
    **Exemple** : Si vous avez ajouté une photo nommée `test.jpg` à l'intérieur d'un sous-dossier `photos` dans `public`, vous pourrez accéder à cette photo dans votre code en utilisant le chemin : `./photos/test.jpg`.
 
+   **Exemple 2** :  
+   
+    ```json
+    "global": {
+        "img": "`./photos/test.jpg`"
+      },
+    ```
 
 ## Mise à jour
 
-JE SAIS PAS ENCORE
+
+Pour mettre à jour ce projet avec les dernières modifications du template sans écraser vos configurations et vos articles, veuillez utiliser le script `updateTemplate.sh` fourni.
+
+1. **Rendre le script executable** : 
+
+```
+chmod +x updateTemplate.sh
+
+
+```
+2. **Exécuter le script** : 
+
+
+```
+./updateTemplate.sh
+```
+
+Le script sauvegardera d'abord votre projet actuel dans un dossier BACKUP, puis il mettra à jour votre projet avec les derniers fichiers du dépôt distant, en excluant vos configurations et vos articles.
+
+3. Consultez le `READMEMAJ.md` affiché après la mise à jour pour connaître les éventuelles étapes supplémentaires ou les notes importantes.
+
+ATTENTION : Des fichiers peuvent être à ajouter ou des configurations peuvent être à modifier. 
 
 
 ## Et ensuite ?
