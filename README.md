@@ -11,8 +11,17 @@ Vous devez avoir au moins 7 articles sur votre site pour que celui-ci marche.
 
    Pour démarrer, clonez ce répertoire afin de récupérer tous les fichiers nécessaires :
    ```bash
-   git clone https://github.com/eesnault1/blog-template-nuxt
+   git clone --bare https://github.com/eesnault1/blog-template-nuxt monDossier
    ```
+
+   ```bash
+   cd monDossier
+   ```
+   
+   ```bash
+   npm install
+   ```
+
 
 ### 2. **Modification des fichiers de configuration**  
    Pour personnaliser votre blog, vous devrez modifier trois fichiers :
