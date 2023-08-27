@@ -3,13 +3,11 @@
     <!-- Le dernier Article de sortie -->
     <CardFirstArticle v-if="storeArticle.isLoaded" :data="storeArticle.lastArticle[0]" />
     <TheSpinner v-else />
-    <div v-if="storeArticle.isLoaded" class="section-width">
+    <div v-if="storeArticle.isLoaded && storeArticle.randomArticle[0]" class="section-width">
       <!-- L'avant dernier article de sortie -->
       <div class="section-second-article">
         <CardArticle :article="storeArticle.randomArticle[0]" />
       </div>
-      {{ storeConfig.config.global.url }}
-
       <!-- Les 6 autres articles après les 2 premiers -->
       <div class="section-dernier">
         <div class="section-dernier__title">
@@ -24,7 +22,8 @@
       </div>
     </div>
     <!-- Article Random parmis ceux qu'ils restent + Caroussel d'une catégorie -->
-    <div v-if="storeArticle.isLoaded" class="section-random__first">
+        <!-- Ne charge que si il y a assez d'articles sur le site -->
+    <div v-if="storeArticle.isLoaded && storeArticle.randomArticle[1]" class="section-random__first">
       <div class="section-random__card">
         <CardArticle :article="storeArticle.randomArticle[1]" />
         <div class="section-dernier__title">
@@ -41,7 +40,9 @@
       </div>
     </div>
     <!-- Article Random parmis ceux qu'ils restent + Caroussel d'une catégorie -->
-    <div v-if="storeArticle.isLoaded" class="section-random__second">
+            <!-- Ne charge que si il y a assez d'articles sur le site -->
+
+    <div v-if="storeArticle.isLoaded && storeArticle.randomArticle[2]" class="section-random__second">
       <div class="section-random__card">
         <CardArticle :article="storeArticle.randomArticle[2]" />
         <div class="section-dernier__title">

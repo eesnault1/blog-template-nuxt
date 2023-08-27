@@ -78,10 +78,12 @@ export const useGetArticle = defineStore({
         return post.categories.split(',')[0].includes(storeConfig.config.pages.choix_categorie_accueil.categorie_2)
       })
       // Selection des articles display au hasard en ommetant des articles déjà sur la page principale pour le SEO
-      const excludedIds = [...this.accueil.cat2, ...this.accueil.cat1, ...this.lastArticle].map(article => article.id)
-      const availableArticles = this.article.filter(article => !excludedIds.includes(article.id))
-      const randomArticleTemp = availableArticles.sort(() => 0.5 - Math.random())
-      this.randomArticle = randomArticleTemp
+      if (this.randomArticle.length === 0) {
+        const excludedIds = [...this.accueil.cat2, ...this.accueil.cat1, ...this.lastArticle].map(article => article.id)
+        const availableArticles = this.article.filter(article => !excludedIds.includes(article.id))
+        const randomArticleTemp = availableArticles.sort(() => 0.5 - Math.random())
+        this.randomArticle = randomArticleTemp
+      }
     }
   },
   getters: {
