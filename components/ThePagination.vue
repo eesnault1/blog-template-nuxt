@@ -101,8 +101,8 @@ updatePage(0)
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1f583aec;
-  color : white;
+  background-color: var(--main-color);
+  color : var(--text-color);
   padding: 5px 10px ;
   cursor: pointer;
 }

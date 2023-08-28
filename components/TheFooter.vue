@@ -2,7 +2,7 @@
   <div class="footer-container">
     <div class="footer">
       <div class="footer-title">
-        <h3> Blog Jardinage écologique et permaculture </h3>
+        <h3> Blog {{ storeConfig.config.global.titre }}  </h3>
       </div>
       <div class="footer-link">
         <h3> Lien rapide </h3>
@@ -16,7 +16,7 @@
           Rechercher par catégories
         </NuxtLink>
         <NuxtLink class="footer-link__link" to="/PolitiqueConfidentialite">
-          confidentialité
+          Confidentialité
         </NuxtLink>
       </div>
       <div class="footer-contact">
@@ -34,6 +34,8 @@
 </template>
 
 <script setup>
+import { useConfigGlobal } from '~/stores/getConfigGlobal'
+const storeConfig = useConfigGlobal()
 
 </script>
 

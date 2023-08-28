@@ -3,7 +3,7 @@
     <NuxtLink to="/" class="navbar__logo">
       <img
         src="/favicon.jpg"
-        alt="Logo potager-bio.fr"
+        alt="Logo"
         class="navbar__logo"
       >
     </NuxtLink>

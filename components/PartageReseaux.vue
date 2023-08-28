@@ -18,6 +18,9 @@
 </template>
 
 <script setup>
+import { useConfigGlobal } from '~/stores/getConfigGlobal'
+const storeConfig = useConfigGlobal()
+
 const props = defineProps({
   data: {
     type: Object,
@@ -35,9 +38,8 @@ const networks = [
 ]
 
 const sharing = ref({})
-
 sharing.value = {
-  url: `https://www.potager-bio.fr/articles/${props.data.slug}`,
+  url: `${storeConfig.config.global.url}/articles/${props.data.slug}`,
   title: props.data.title,
   description: props.data.description
 }
