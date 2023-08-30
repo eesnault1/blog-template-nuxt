@@ -4,7 +4,7 @@ const simpleGit = require('simple-git');
 
 async function main() {
     const REMOTE_REPO = "https://github.com/eesnault1/blog-template-nuxt";
-    const EXCLUDE = new Set(["public", ".env", "content", "styles", "updateTemplate.js", ".git", "data", ".gitignore"]);
+    const EXCLUDE = new Set(["public", "font", ".env", "content", "styles", "updateTemplate.js", ".git", "data", ".gitignore"]);
     const TMP_DIR = "TMP_CLONE";
 
     const git = simpleGit();

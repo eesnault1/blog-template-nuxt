@@ -36,7 +36,7 @@
             Voir tous les articles
           </TheButton>
         </div>
-        <div class="container-partage">
+        <div v-if="storeConfig.config" class="container-partage">
           <h2> Partagez cet article sur les réseaux : </h2>
           <PartageReseaux :data="data" />
         </div>
@@ -69,6 +69,7 @@ import { useGetArticle } from '~/stores/getArticles'
 import { useConfigGlobal } from '~/stores/getConfigGlobal'
 const storeConfig = useConfigGlobal()
 const storeArticle = useGetArticle()
+
 const listArticleAssocie = ref([])
 const { path } = useRoute()
 const slug12 = path.replace('/articles/', '')
@@ -140,52 +141,64 @@ function scrollToTop () {
 }
 
 // SEO
-const generateJSONLD = () => ({
-  '@context': 'http://schema.org',
-  '@type': 'BlogPosting',
-  headline: data ? data._rawValue.title : '',
-  description: data ? data._rawValue.description : '',
-  author: {
-    '@type': 'Person',
-    name: data ? data._rawValue.auteur : ''
-  },
-  datePublished: data ? data._rawValue.date : '',
-  dateModified: data ? data._rawValue.lastModif : '',
-  image: {
-    '@type': 'ImageObject',
-    url: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : ''
-  },
-  url: data ? `${storeConfig.config.global.url}/articles/${data._rawValue.slug}` : '',
-  publisher: {
-    '@type': 'Organization',
-    name: 'Potager Bio',
-    logo: {
+const loadSEO = () => {
+  const generateJSONLD = () => ({
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
+    headline: data ? data._rawValue.title : '',
+    description: data ? data._rawValue.description : '',
+    author: {
+      '@type': 'Person',
+      name: data ? data._rawValue.auteur : ''
+    },
+    datePublished: data ? data._rawValue.date : '',
+    dateModified: data ? data._rawValue.lastModif : '',
+    image: {
       '@type': 'ImageObject',
-      url: `${storeConfig.config.global.url}/favicon.png`
+      url: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : ''
+    },
+    url: data ? `${storeConfig.config.global.url}/articles/${data._rawValue.slug}` : '',
+    publisher: {
+      '@type': 'Organization',
+      name: data ? `${storeConfig.config.global.titre}` : '',
+      logo: {
+        '@type': 'ImageObject',
+        url: data ? `${storeConfig.config.global.url}/favicon.png` : ''
+      }
     }
+  })
+  useJsonld(generateJSONLD)
+
+  const route = useRoute()
+  useHead(() => ({
+    link: [
+      {
+        rel: 'canonical',
+        href: data ? `${storeConfig.config.global.url}` + route.path : ''
+      }
+    ]
+  }))
+
+  useSeoMeta({
+    title: data ? data._rawValue.title : '',
+    ogTitle: data ? data._rawValue.title : '',
+    description: data ? data._rawValue.description : '',
+    ogDescription: data ? data._rawValue.description : '',
+    ogImage: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : '',
+    ogType: 'article',
+    ogUrl: data ? `${storeConfig.config.global.url}/articles/${data._rawValue.slug}` : '',
+    ogPublishDate: data ? `${data._rawValue.date}` : ''
+  })
+}
+
+onMounted(async () => {
+  if (!storeConfig.config) {
+    await storeConfig.grabJSONFile()
+    console.log(storeConfig.config)
+    loadSEO()
+  } else {
+    loadSEO()
   }
-})
-useJsonld(generateJSONLD)
-
-const route = useRoute()
-await useHead(() => ({
-  link: [
-    {
-      rel: 'canonical',
-      href: `${storeConfig.config.global.url}` + route.path
-    }
-  ]
-}))
-
-await useSeoMeta({
-  title: data ? data._rawValue.title : '',
-  ogTitle: data ? data._rawValue.title : '',
-  description: data ? data._rawValue.description : '',
-  ogDescription: data ? data._rawValue.description : '',
-  ogImage: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : '',
-  ogType: 'article',
-  ogUrl: `${storeConfig.config.global.url}/articles/${data._rawValue.slug}`,
-  ogPublishDate: `${data._rawValue.date}`
 })
 
 </script>
