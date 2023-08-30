@@ -19,6 +19,7 @@
           Confidentialité
         </NuxtLink>
       </div>
+    </div>
   </div>
 </template>
 

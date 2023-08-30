@@ -66,6 +66,8 @@
 
 <script setup>
 import { useGetArticle } from '~/stores/getArticles'
+import { useConfigGlobal } from '~/stores/getConfigGlobal'
+const storeConfig = useConfigGlobal()
 const storeArticle = useGetArticle()
 const listArticleAssocie = ref([])
 const { path } = useRoute()
@@ -151,15 +153,15 @@ const generateJSONLD = () => ({
   dateModified: data ? data._rawValue.lastModif : '',
   image: {
     '@type': 'ImageObject',
-    url: data ? `https://www.potager-bio.fr/${data._rawValue.img.substring(1)}` : ''
+    url: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : ''
   },
-  url: data ? `https://www.potager-bio.fr/articles/${data._rawValue.slug}` : '',
+  url: data ? `${storeConfig.config.global.url}/articles/${data._rawValue.slug}` : '',
   publisher: {
     '@type': 'Organization',
     name: 'Potager Bio',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.potager-bio.fr/favicon.png'
+      url: `${storeConfig.config.global.url}/favicon.png`
     }
   }
 })
@@ -170,7 +172,7 @@ await useHead(() => ({
   link: [
     {
       rel: 'canonical',
-      href: 'https://www.potager-bio.fr' + route.path
+      href: `${storeConfig.config.global.url}` + route.path
     }
   ]
 }))
@@ -180,9 +182,9 @@ await useSeoMeta({
   ogTitle: data ? data._rawValue.title : '',
   description: data ? data._rawValue.description : '',
   ogDescription: data ? data._rawValue.description : '',
-  ogImage: data ? `https://www.potager-bio.fr/${data._rawValue.img.substring(1)}` : '',
+  ogImage: data ? `${storeConfig.config.global.url}/${data._rawValue.img.substring(1)}` : '',
   ogType: 'article',
-  ogUrl: `https://www.potager-bio.fr/articles/${data._rawValue.slug}`,
+  ogUrl: `${storeConfig.config.global.url}/articles/${data._rawValue.slug}`,
   ogPublishDate: `${data._rawValue.date}`
 })
 
