@@ -143,12 +143,12 @@ if (storeConfig.config) {
   padding-left : 0px;
 }
 .categorie-display__link:hover {
-  color : #1f583aec;
-  box-shadow: inset 0 -2px 0 #1f583aec;
+  color : var(--main-color);
+  box-shadow: inset 0 -2px 0 var(--main-color);
 }
 
 .categorie-display__link:focus {
-  color : #1f583aec;
+  color : var(--main-color);
 }
 }
 

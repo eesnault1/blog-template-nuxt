@@ -19,17 +19,6 @@
           Confidentialité
         </NuxtLink>
       </div>
-      <div class="footer-contact">
-        <h3>
-          Contactez nous !
-        </h3>
-        <form>
-          <TheButton>
-            Contactez-nous !
-          </TheButton>
-        </form>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -42,7 +31,7 @@ const storeConfig = useConfigGlobal()
 <style scoped>
 
 .footer-container {
-    border-top : 1px solid #1f583aec;
+    border-top : 1px solid var(--main-color);
 }
 .footer {
     width:90%;
@@ -55,7 +44,7 @@ const storeConfig = useConfigGlobal()
 
 h3 {
     font-size: 1.4;
-    color: #1f583aec;
+    color: var(--main-color);
 }
 
 .footer-link {
@@ -72,7 +61,7 @@ h3 {
 
 .footer-link__link:hover {
     text-decoration: underline;
-    color: #1f583aec;
+    color: var(--main-color);
 }
 
 .footer-contact {
