@@ -47,7 +47,7 @@ sharing.value = {
 watch(props.data, (newVal) => {
   if (newVal) {
     sharing.value = {
-      url: `https://www.potager-bio.fr/articles/${newVal._rawValue.slug}`,
+      url: `${storeConfig.config.global.url}/articles/${newVal._rawValue.slug}`,
       title: newVal._rawValue.title,
       description: newVal._rawValue.description
     }

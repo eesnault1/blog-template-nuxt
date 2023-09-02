@@ -147,7 +147,8 @@ const loadSEO = () => {
     '@type': 'BlogPosting',
     headline: data ? data._rawValue.title : '',
     description: data ? data._rawValue.description : '',
-    author: {
+    logo:  data ? `${storeConfig.config.global.url}/favicon.jpg` : '',
+        author: {
       '@type': 'Person',
       name: data ? data._rawValue.auteur : ''
     },
@@ -163,7 +164,7 @@ const loadSEO = () => {
       name: data ? `${storeConfig.config.global.titre}` : '',
       logo: {
         '@type': 'ImageObject',
-        url: data ? `${storeConfig.config.global.url}/favicon.png` : ''
+        url: data ? `${storeConfig.config.global.url}/favicon.jpg` : ''
       }
     }
   })
@@ -194,7 +195,6 @@ const loadSEO = () => {
 onMounted(async () => {
   if (!storeConfig.config) {
     await storeConfig.grabJSONFile()
-    console.log(storeConfig.config)
     loadSEO()
   } else {
     loadSEO()
