@@ -5,7 +5,7 @@
       <title>Politique de Confidentialité</title>
       <meta name="robots" content="noindex">
     </head>
-    <div>
+    <div v-if="storeConfig.config">
       <h1>POLITIQUE DE CONFIDENTIALITÉ</h1>
 
       <h2>1. Préambule</h2>
