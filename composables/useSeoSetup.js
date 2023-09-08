@@ -5,7 +5,7 @@ export function useSeoSetup (storeConfigGlobal, storeConfigPage) {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: storeConfigGlobal ? `${storeConfigGlobal.url}` : '',
-    logo:  storeConfigGlobal ? `${storeConfigGlobal.url}/favicon.jpg` : '',
+    logo: storeConfigGlobal ? `${storeConfigGlobal.url}/favicon.jpg` : '',
     name: storeConfigGlobal ? `${storeConfigGlobal.titre}` : '',
     description: storeConfigGlobal ? `${storeConfigGlobal.description}` : '',
     image: storeConfigGlobal ? `${storeConfigGlobal.img}` : '',

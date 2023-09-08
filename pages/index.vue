@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- Article Random parmis ceux qu'ils restent + Caroussel d'une catégorie -->
-        <!-- Ne charge que si il y a assez d'articles sur le site -->
+    <!-- Ne charge que si il y a assez d'articles sur le site -->
     <div v-if="storeArticle.isLoaded && storeArticle.randomArticle[1]" class="section-random__first">
       <div class="section-random__card">
         <CardArticle :article="storeArticle.randomArticle[1]" />
@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- Article Random parmis ceux qu'ils restent + Caroussel d'une catégorie -->
-            <!-- Ne charge que si il y a assez d'articles sur le site -->
+    <!-- Ne charge que si il y a assez d'articles sur le site -->
 
     <div v-if="storeArticle.isLoaded && storeArticle.randomArticle[2]" class="section-random__second">
       <div class="section-random__card">
