@@ -38,12 +38,23 @@ export default defineNuxtConfig({
     'nuxt-simple-sitemap',
     'nuxt-simple-robots',
     'nuxt-jsonld',
-    'nuxt-gtag'
-    /*     ['@nuxtjs/google-adsense', {
+    'nuxt-gtag', /*     ['@nuxtjs/google-adsense', {
       id: process.env.ADSENSE_ID,
       onPageLoad: false,
       pauseOnLoad: true
     }] */
+    ['nuxt-mail', {
+      message: {
+        to: process.env.GMAIL_ADRESSE
+      },
+      smtp: {
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL_ADRESSE,
+          pass: process.env.GMAIL_MDP
+        }
+      }
+    }]
   ],
   plugins: [
     '~/plugins/vue-social-sharing.client.js'

@@ -18,6 +18,9 @@
         <NuxtLink class="footer-link__link" to="/PolitiqueConfidentialite">
           Confidentialité
         </NuxtLink>
+        <TheButton @action="redirectContact">
+          Contactez-nous
+        </TheButton>
       </div>
     </div>
   </div>
@@ -26,7 +29,11 @@
 <script setup>
 import { useConfigGlobal } from '~/stores/getConfigGlobal'
 const storeConfig = useConfigGlobal()
+const router = useRouter()
 
+const redirectContact = () => {
+  router.push('/contact')
+}
 </script>
 
 <style scoped>

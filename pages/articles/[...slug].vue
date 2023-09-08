@@ -147,8 +147,8 @@ const loadSEO = () => {
     '@type': 'BlogPosting',
     headline: data ? data._rawValue.title : '',
     description: data ? data._rawValue.description : '',
-    logo:  data ? `${storeConfig.config.global.url}/favicon.jpg` : '',
-        author: {
+    logo: data ? `${storeConfig.config.global.url}/favicon.jpg` : '',
+    author: {
       '@type': 'Person',
       name: data ? data._rawValue.auteur : ''
     },
