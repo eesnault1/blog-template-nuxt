@@ -10,24 +10,24 @@
               id="email"
               v-model="from"
               :class="!emailValid ? 'form-contact__form-error' : 'form-contact__form'"
-              placeholder="Your email"
+              placeholder="Votre email"
             >
             <div v-if="!emailValid && isSend" class="error-message">
-              Please enter a valid email address.
+              Veuillez entrer une adresse email valide.            
             </div>
           </div>
 
           <div class="form-contact__containeur">
-            <label for="subject" class="form-contact__label">Subject</label>
+            <label for="subject" class="form-contact__label">Objet</label>
             <input
               id="subject"
               v-model="subject"
               class="form-contact__subject"
               :class="!subjectLengthValid ? 'form-contact__form-error' : 'form-contact__text'"
-              placeholder="Subject"
+              placeholder="Objet"
             >
             <div v-if="!subjectLengthValid && isSend" class="error-message">
-              The subject should be at least 10 characters.
+              L'objet doit contenir au moins 10 caractères.            
             </div>
           </div>
         </div>
@@ -38,21 +38,21 @@
             id="message"
             v-model="text"
             class="form-contact__text"
-            placeholder="Enter your message here"
+            placeholder="Entrer votre message ici"
             :class="!textLengthValid ? 'form-contact__form-error' : 'form-contact__text'"
           />
         </div>
 
         <div v-if="!textLengthValid && isSend" class="error-message">
-          The message should be at least 30 characters.
+          Le message doit contenir au moins 30 caractères.        
         </div>
       </div>
       <TheButton type="submit">
-        Submit email
-      </TheButton>
+        Envoyer l'email     
+       </TheButton>
       <div v-if="emailSend" :disabled="isSubmitting" class="sucess-send">
-        Email send with success
-      </div>
+        Email envoyé avec succès     
+       </div>
     </form>
   </div>
 </template>
