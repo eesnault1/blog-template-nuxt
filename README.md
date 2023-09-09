@@ -11,8 +11,14 @@ Vous devez avoir au moins 7 articles sur votre site pour que celui-ci marche.
 
    Pour démarrer, clonez ce répertoire afin de récupérer tous les fichiers nécessaires :
    ```bash
-   git clone --bare https://github.com/eesnault1/blog-template-nuxt monDossier
+   git clone https://github.com/eesnault1/blog-template-nuxt monDossier
    ```
+
+
+   ```bash
+  git remote remove origin
+   ```
+   
 
    ```bash
    cd monDossier
@@ -143,36 +149,33 @@ Les photos doivent être placées à l'intérieur du dossier `public`. Ce dossie
 
 Une fois que vous avez placé vos photos dans le dossier approprié, vous pouvez y accéder dans votre code en utilisant un chemin relatif. 
    
-   **Exemple** : Si vous avez ajouté une photo nommée `test.jpg` à l'intérieur d'un sous-dossier `photos` dans `public`, vous pourrez accéder à cette photo dans votre code en utilisant le chemin : `./photos/test.jpg`.
+   **Exemple** : Si vous avez ajouté une photo nommée `test.jpg` à l'intérieur d'un sous-dossier `photos` dans `public`, vous pourrez accéder à cette photo dans votre code en utilisant le chemin : `/photos/test.jpg`.
 
    **Exemple 2** :  
    
     ```json
     "global": {
-        "img": "`./photos/test.jpg`"
+        "img": "`/photos/test.jpg`"
       },
     ```
 
 ## Mise à jour
 
 
-Pour mettre à jour ce projet avec les dernières modifications du template sans écraser vos configurations et vos articles, veuillez utiliser le script `updateTemplate.sh` fourni.
+Pour mettre à jour ce projet avec les dernières modifications du template sans écraser vos configurations et vos articles, veuillez utiliser le script `updateTemplate.js` fourni.
 
 1. **Rendre le script executable** : 
 
 ```
-chmod +x updateTemplate.sh
-
+npm install simple-git
 
 ```
 2. **Exécuter le script** : 
 
 
 ```
-./updateTemplate.sh
+node updateTemplate.js
 ```
-
-Le script sauvegardera d'abord votre projet actuel dans un dossier BACKUP, puis il mettra à jour votre projet avec les derniers fichiers du dépôt distant, en excluant vos configurations et vos articles.
 
 3. Consultez le `READMEMAJ.md` affiché après la mise à jour pour connaître les éventuelles étapes supplémentaires ou les notes importantes.
 
