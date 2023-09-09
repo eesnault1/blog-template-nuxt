@@ -71,6 +71,8 @@ Ce fichier vous permet de configurer des variables d'environnement qui seront ut
 GA_ID=Votre_Google_Analytics_ID
 ADSENSE_ID=Votre_Adsense_ID
 SITE_URL=https://monblog.com
+GMAIL_ADRESSE=Votre_Adresse_GMAIL
+GMAIL_MDP=Votre_Mot_De_Passe_GMAIL_Application 
 ```
 
  3. `categorie.json`

@@ -6,23 +6,41 @@
         <div class="form-contact__input">
           <div class="form-contact__containeur">
             <label for="email" class="form-contact__label">Email</label>
-            <input id="email" v-model="from" class="form-contact__from" placeholder="Your email">
+            <input
+              id="email"
+              v-model="from"
+              :class="!emailValid ? 'form-contact__form-error' : 'form-contact__form'"
+              placeholder="Your email"
+            >
+            <div v-if="!emailValid && isSend" class="error-message">
+              Please enter a valid email address.
+            </div>
           </div>
-          <div v-if="!emailValid && isSend" class="error-message">
-            Please enter a valid email address.
-          </div>
+
           <div class="form-contact__containeur">
             <label for="subject" class="form-contact__label">Subject</label>
-            <input id="subject" v-model="subject" class="form-contact__subject" placeholder="Subject">
-          </div>
-          <div v-if="!subjectLengthValid && isSend" class="error-message">
-            The subject should be at least 10 characters.
+            <input
+              id="subject"
+              v-model="subject"
+              class="form-contact__subject"
+              :class="!subjectLengthValid ? 'form-contact__form-error' : 'form-contact__text'"
+              placeholder="Subject"
+            >
+            <div v-if="!subjectLengthValid && isSend" class="error-message">
+              The subject should be at least 10 characters.
+            </div>
           </div>
         </div>
 
         <div class="form-contact__containeur">
           <label for="message" class="form-contact__label">Message</label>
-          <textarea id="message" v-model="text" class="form-contact__text" placeholder="Enter your message here" />
+          <textarea
+            id="message"
+            v-model="text"
+            class="form-contact__text"
+            placeholder="Enter your message here"
+            :class="!textLengthValid ? 'form-contact__form-error' : 'form-contact__text'"
+          />
         </div>
 
         <div v-if="!textLengthValid && isSend" class="error-message">
@@ -59,13 +77,15 @@ const from = ref('')
 const subject = ref('')
 const text = ref('')
 const emailSend = ref(false)
+
+// FOnction send EMail
 const sendEmail = async () => {
   isSend.value = true
+
   // Pour vérifier que tous les champs sont bons
-
   if (!canSubmit.value) { return }
-  // Pour éviter qu'il y ait trop de demande de contact d'un coup
 
+  // Pour éviter qu'il y ait trop de demande de contact d'un coup
   if (isSubmitting.value) { return }
   isSubmitting.value = true
   try {
@@ -131,7 +151,6 @@ h2{
     gap: 50px;
    }
    .form-contact__containeur {
-      white-space: nowrap;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -144,7 +163,7 @@ h2{
       font-size: 1.2rem;
    }
 
-   .form-contact__from,
+   .form-contact__form,
    .form-contact__subject,
    .form-contact__text {
       border : 1px solid var(--main-color);
@@ -152,14 +171,26 @@ h2{
       color: var(--main-color);
       padding: 5px;
       outline: none;
-
    }
 
-   .form-contact__from:focus,
+   .form-contact__form:focus,
    .form-contact__subject:focus,
     .form-contact__text:focus {
       border: 1px solid transparent;
       box-shadow: 0 0 0 3px var(--main-color);
+  }
+
+  .form-contact__form-error{
+      border : 1px solid var(--main-color);
+      border-radius: 5px;
+      color: var(--main-color);
+      padding: 5px;
+      outline: none;
+   }
+
+  .form-contact__form-error:focus {
+    border: 1px solid transparent;
+      box-shadow: 0 0 0 3px var(--error);
   }
 
    .form-contact__text {
