@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-container">
+  <div v-if="storeArticle.isLoaded" class="footer-container">
     <div class="footer">
       <div class="footer-title">
         <h3> Blog {{ storeConfig.config.global.titre }}  </h3>
@@ -18,17 +18,23 @@
         <NuxtLink class="footer-link__link" to="/PolitiqueConfidentialite">
           Confidentialité
         </NuxtLink>
-        <TheButton @action="redirectContact">
-          Contactez-nous
-        </TheButton>
       </div>
+      <TheButton @action="redirectContact">
+        Contactez-nous
+      </TheButton>
     </div>
   </div>
 </template>
 
 <script setup>
+// Import des stores
+import { useGetArticle } from '~/stores/getArticles'
 import { useConfigGlobal } from '~/stores/getConfigGlobal'
+
+// constantes des stores
+const storeArticle = useGetArticle()
 const storeConfig = useConfigGlobal()
+
 const router = useRouter()
 
 const redirectContact = () => {
