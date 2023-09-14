@@ -13,7 +13,7 @@
               placeholder="Votre email"
             >
             <div v-if="!emailValid && isSend" class="error-message">
-              Veuillez entrer une adresse email valide.            
+              Veuillez entrer une adresse email valide.
             </div>
           </div>
 
@@ -27,7 +27,7 @@
               placeholder="Objet"
             >
             <div v-if="!subjectLengthValid && isSend" class="error-message">
-              L'objet doit contenir au moins 10 caractères.            
+              L'objet doit contenir au moins 10 caractères.
             </div>
           </div>
         </div>
@@ -44,15 +44,15 @@
         </div>
 
         <div v-if="!textLengthValid && isSend" class="error-message">
-          Le message doit contenir au moins 30 caractères.        
+          Le message doit contenir au moins 30 caractères.
         </div>
       </div>
       <TheButton type="submit">
-        Envoyer l'email     
-       </TheButton>
+        Envoyer l'email
+      </TheButton>
       <div v-if="emailSend" :disabled="isSubmitting" class="sucess-send">
-        Email envoyé avec succès     
-       </div>
+        Email envoyé avec succès
+      </div>
     </form>
   </div>
 </template>
@@ -112,6 +112,7 @@ const sendEmail = async () => {
     console.error('Erreur lors de l\'envoi de l\'email:', error)
   }
 }
+
 </script>
 
   <style scoped>

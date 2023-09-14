@@ -433,13 +433,19 @@ strong {
   font-weight: 700;
 }
 
+p + p {
+    margin-top: 20px;
+}
+
 .container__content .lien-interne {
   color: #1f583a;
   font-weight: 600;
 }
 
 .container__content br {
-    margin-bottom: 30px;
+  display: block;
+    margin: 15px 0;
+    content: " ";
 }
 
 .container__content > p {

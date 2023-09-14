@@ -89,15 +89,41 @@ onMounted(async () => {
 })
 
 // SEO
-watch(storeConfig, (newVal) => {
-  if (newVal) {
-    useSeoSetup(storeConfig.config.global, storeConfig.config.pages.tous_les_articles)
+
+const loadSEO = async () => {
+  useSeoSetup(storeConfig.config.global, storeConfig.config.pages.tous_les_articles)
+  const generateJSONLD = () => JSON.stringify({
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    url: storeConfig.config.global ? `${storeConfig.config.global.url}` : '',
+    logo: storeConfig.config.global ? `${storeConfig.config.global.url}/favicon.jpg` : '',
+    name: storeConfig.config.global ? `${storeConfig.config.global.titre}` : '',
+    description: storeConfig.config.global ? `${storeConfig.config.global.description}` : '',
+    image: storeConfig.config.global ? `${storeConfig.config.global.url}${storeConfig.config.global.img}` : '',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': storeConfig.config.global ? `${storeConfig.config.global.url}` : ''
+    }
+  })
+
+  const jsonLdScript = {
+    type: 'application/ld+json',
+    innerHTML: generateJSONLD()
+  }
+
+  useHead({
+    script: [jsonLdScript]
+  })
+}
+
+onBeforeMount(async () => {
+  if (!storeConfig.config) {
+    await storeConfig.grabJSONFile()
+    loadSEO()
+  } else {
+    loadSEO()
   }
 })
-
-if (storeConfig.config) {
-  useSeoSetup(storeConfig.config.global, storeConfig.config.pages.tous_les_articles)
-}
 
 </script>
 
