@@ -1,19 +1,7 @@
 export function useSeoSetup (storeConfigGlobal, storeConfigPage) {
   const route = useRoute()
   // SCHEMA.ORG
-  const generateJSONLD = () => ({
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url: storeConfigGlobal ? `${storeConfigGlobal.url}` : '',
-    logo: storeConfigGlobal ? `${storeConfigGlobal.url}/favicon.jpg` : '',
-    name: storeConfigGlobal ? `${storeConfigGlobal.titre}` : '',
-    description: storeConfigGlobal ? `${storeConfigGlobal.description}` : '',
-    image: storeConfigGlobal ? `${storeConfigGlobal.img}` : '',
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': storeConfigGlobal ? `${storeConfigGlobal.url}` : ''
-    }
-  })
+
   // SEO
   useHead(() => ({
     link: [
@@ -30,8 +18,6 @@ export function useSeoSetup (storeConfigGlobal, storeConfigPage) {
     description: storeConfigGlobal ? `${storeConfigPage.description}` : '',
     ogDescription: storeConfigGlobal ? `${storeConfigPage.description}` : '',
     ogUrl: storeConfigGlobal ? `${storeConfigGlobal.url}${route.path}` : '',
-    ogImage: storeConfigGlobal ? `${storeConfigPage.img}` : ''
+    ogImage: storeConfigGlobal ? `${storeConfigGlobal.url}${storeConfigPage.img}` : ''
   })
-
-  return { generateJSONLD }
 }

@@ -3,7 +3,7 @@
       "url": "URL_DU_BLOG",
       "titre": "TITRE_DU_BLOG",
       "description": "DESCRIPTION_DU_BLOG",
-      "img" : "./IMAGE.JPG"
+      "img" : "/IMAGE.JPG"
   },
   "pages": {
     "tous_les_articles": {
