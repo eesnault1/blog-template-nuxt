@@ -41,7 +41,7 @@ const cookieChoice = (choice) => {
     storeGoogleAdd.displayPubFonction()
     useGtagConsent(true)
   } else {
-    useGtagConsent(false)
+    useGtagConsent(true)
     localStorage.setItem('adsenseConsent', 'Non')
     storeGoogleAdd.displayPubFonction()
   }

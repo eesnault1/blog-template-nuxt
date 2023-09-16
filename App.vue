@@ -33,6 +33,10 @@ onBeforeMount(async () => {
 const cookieLocalStorage = ref(false)
 onBeforeMount(() => {
   cookieLocalStorage.value = localStorage.getItem('showCookieBanner') !== null
+  // Si l'utilisateur a précédemment accepté les cookies, initialisez GA
+  if (localStorage.getItem('adsenseConsent') === 'Oui' || localStorage.getItem('adsenseConsent') === 'Non') {
+    useGtagConsent(true)
+  }
 })
 
 // Permet d'enlever la banner cookie lors du choix de l'utilisateur
