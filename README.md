@@ -3,17 +3,17 @@
 
 Ce template offre une solution prête à l'emploi pour créer rapidement son blog avec un contenu facilement modifiable.
 
-Vous devez avoir au moins 7 articles sur votre site pour que celui-ci marche. 
+Vous devez avoir au moins 1 article sur votre site pour que celui-ci marche. 
 
 ## Étapes d'installation
 
 ### 1. **Clonage du répertoire**  
 
    Pour démarrer, clonez ce répertoire afin de récupérer tous les fichiers nécessaires :
+
    ```bash
    git clone https://github.com/eesnault1/blog-template-nuxt monDossier
    ```
-
 
    ```bash
   git remote remove origin
@@ -71,7 +71,9 @@ Ce fichier vous permet de configurer l'affichage global, le SEO et les diverses 
 
  2. `.env`
 
-Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Assurez-vous de remplir chaque champ. Exemple :
+Ce fichier vous permet de configurer des variables d'environnement qui seront utilisées dans votre projet. Assurez-vous de remplir chaque champ. 
+
+Exemple :
 
 ```
 GA_ID=Votre_Google_Analytics_ID
