@@ -142,7 +142,7 @@ function scrollToTop () {
 
 // SEO
 const loadSEO = () => {
-  const generateJSONLD = () => ({
+  const generateJSONLD = () => JSON.stringify({
     '@context': 'http://schema.org',
     '@type': 'BlogPosting',
     headline: data ? data._rawValue.title : '',
@@ -168,7 +168,15 @@ const loadSEO = () => {
       }
     }
   })
-  useJsonld(generateJSONLD)
+
+  const jsonLdScript = {
+    type: 'application/ld+json',
+    innerHTML: generateJSONLD()
+  }
+
+  useHead({
+    script: [jsonLdScript]
+  })
 
   const route = useRoute()
   useHead(() => ({
@@ -192,7 +200,7 @@ const loadSEO = () => {
   })
 }
 
-onMounted(async () => {
+onBeforeMount(async () => {
   if (!storeConfig.config) {
     await storeConfig.grabJSONFile()
     loadSEO()
